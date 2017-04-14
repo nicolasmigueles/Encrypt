@@ -1,9 +1,6 @@
 var simbolo;
-var supported = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","u","v","w","x","y","z",
-                "A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","U","V","W","X","Y","Z",
-                "1","2","3","4","5","6","7","8","9","0"];
-  var decoded = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","u","v","w","x","y","z",
-                "A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","U","V","W","X","Y","Z",
+var supported = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","Ã±","o","p","q","r","s","u","v","w","x","y","z",
+                "A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ã‘","O","P","Q","R","S","U","V","W","X","Y","Z",
                 "1","2","3","4","5","6","7","8","9","0"];
 var MasterKey = null;
 function Enc(text){
@@ -12,7 +9,7 @@ function Enc(text){
 }
 function Clave(text){
   var c = text.split("");
-  var key = 1;// 1 para que no interfiera con la multiplicación;
+  var key = 1;// 1 para que no interfiera con la multiplicaciÃ³n;
   var temp;
   for (var i in c) {
     temp = supported.indexOf(c[i])+1;
@@ -44,13 +41,13 @@ function Miguelizar(text,clave){
 function Decode(strmsg,key){
   var Svalue;
   var constant;
-  var final = "";
+  var final = [];
   var vars;
   var ultimo;
   var nums = Splittwo(strmsg);
   for (var i in supported) {
     Svalue = supported.indexOf(supported[i]) + 1;
-    constant = Svalue * Key;
+    constant = Svalue * key;
     constant = constant.toString();
     vars = constant.split("");
     ultimo = constant.length;
