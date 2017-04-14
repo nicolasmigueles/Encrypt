@@ -41,12 +41,25 @@ function Miguelizar(text,clave){
   console.info('MSG: '+final);
 
 }
-function Decode(strmsg){
+function Decode(strmsg,key){
+  var Svalue;
+  var constant;
+  var final = "";
+  var vars;
+  var ultimo;
   var nums = Splittwo(strmsg);
-  var pos;
+  for (var i in supported) {
+    Svalue = supported.indexOf(supported[i]) + 1;
+    constant = Svalue * Key;
+    constant = constant.toString();
+    vars = constant.split("");
+    ultimo = constant.length;
+    final.push(constant[0] + constant[ultimo-1]);
+  }
   var msg = "";
+  var pos;
   for (var i in nums) {
-    pos = decoded.indexOf(nums[i]);
+    pos = final.indexOf(nums[i]);
     msg = msg + supported[pos];
   }
   return msg;
